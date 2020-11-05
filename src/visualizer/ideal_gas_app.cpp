@@ -11,34 +11,19 @@ IdealGasApp::IdealGasApp()
 
     //std::ifstream read_file;
     //read_file.open(kFile);
-    gas_simulator.LoadSimulation();
+    //gas_simulator.LoadSimulation();
     //read_file.close();
 }
 
-void NaiveBayesApp::draw() {
-    ci::Color8u background_color(255, 246, 148);  // light yellow
+void IdealGasApp::draw() {
+    ci::gl::color background_color("black");
     ci::gl::clear(background_color);
 
-    sketchpad_.Draw();
-
-    ci::gl::drawStringCentered(
-            "Press Delete to clear the sketchpad. Press Enter to make a prediction.",
-            glm::vec2(kWindowSize / 2, kMargin / 2), ci::Color("black"));
-
-    ci::gl::drawStringCentered(
-            "Prediction: " + std::to_string(current_prediction_),
-            glm::vec2(kWindowSize / 2, kWindowSize - kMargin / 2), ci::Color("blue"));
+    simulation_.Draw();
 }
 
-void NaiveBayesApp::mouseDown(ci::app::MouseEvent event) {
-    sketchpad_.HandleBrush(event.getPos());
-}
 
-void NaiveBayesApp::mouseDrag(ci::app::MouseEvent event) {
-    sketchpad_.HandleBrush(event.getPos());
-}
-
-void NaiveBayesApp::keyDown(ci::app::KeyEvent event) {
+/*void IdealGasApp::keyDown(ci::app::KeyEvent event) {
     switch (event.getCode()) {
         case ci::app::KeyEvent::KEY_RETURN:
             GetPrediction();
@@ -48,17 +33,8 @@ void NaiveBayesApp::keyDown(ci::app::KeyEvent event) {
             sketchpad_.Clear();
             break;
     }
-}
+}*/
 
-void NaiveBayesApp::GetPrediction() {
-    std::string image = sketchpad_.ImportSketchpad();
-    std::stringstream  temp(image);
-    NaiveBayesModel model;
-
-    temp >> model;
-
-    current_prediction_ = naive_classifier.Prediction(model);
-}
 
 }  // namespace visualizer
 

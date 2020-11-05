@@ -18,9 +18,11 @@ public:
     IdealGasApp();
 
     void draw() override;
-    void mouseDown(ci::app::MouseEvent event) override;
-    void mouseDrag(ci::app::MouseEvent event) override;
-    void keyDown(ci::app::KeyEvent event) override;
+    //void update() override;
+
+    //void mouseDown(ci::app::MouseEvent event) override;
+    //void mouseDrag(ci::app::MouseEvent event) override;
+    //void keyDown(ci::app::KeyEvent event) override;
 
     const double kWindowSize = 875;
     const double kMargin = 100;
@@ -29,9 +31,8 @@ public:
 private:
     Simulation simulation_;
     //const std::string kFile = "";
-    IdealGasSimulator gas_simulator;
+    IdealGasSimulator gas_simulator(kWindowSize);
 
-    //void GetPrediction();
 };
 
 }  // namespace visualizer
