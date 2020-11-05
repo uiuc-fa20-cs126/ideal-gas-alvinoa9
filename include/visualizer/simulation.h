@@ -24,7 +24,7 @@ public:
      * @param particles
      */
     Simulation(const vec2& top_left_corner, double particle_radius,
-               string particle_color, vector<Particle> particles)
+               string particle_color, vector<Particle> particles);
 
     /**
      * Displays the current state of the simulation in the Cinder application.
