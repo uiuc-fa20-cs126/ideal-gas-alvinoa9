@@ -24,12 +24,14 @@ public:
     //void mouseDrag(ci::app::MouseEvent event) override;
     //void keyDown(ci::app::KeyEvent event) override;
 
-    const double kWindowSize = 875;
+    const double kWindowSize = 500;
     const double kMargin = 100;
     const size_t kImageDimension = 28;
 
 private:
     Simulation simulation_;
+    const double kRadius_ = 1.0;
+    const string particle_color_ = "blue";
     //const std::string kFile = "";
     IdealGasSimulator gas_simulator(kWindowSize);
 

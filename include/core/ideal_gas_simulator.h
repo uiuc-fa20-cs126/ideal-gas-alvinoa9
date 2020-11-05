@@ -72,7 +72,12 @@ class IdealGasSimulator {
          */
         void Collision(Particle p1, Particle p2);
 
-    private:
+        /**
+         * Getter for vector of particles
+         * @return
+         */
+        vector<Particle> GetParticles();
+
         /**
          * Calculate velocity of particles during collision
          * @param p1 second particle
@@ -88,6 +93,7 @@ class IdealGasSimulator {
          */
         glm::vec2 EvaluatePosition(Particle p1);
 
+    private:
         vector<Particle> particles;
 
         double window_size_;
