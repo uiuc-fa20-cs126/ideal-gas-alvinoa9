@@ -5,9 +5,9 @@ namespace idealgas {
 namespace visualizer {
 
 IdealGasApp::IdealGasApp()
-        //: //gas_simulator(glm::vec2(kMargin, kMargin)),
-          /*simulation_(glm::vec2(kMargin, kMargin), kWindowSize, kWindowSize,
-                      gas_simulator.GetParticles())*/ {
+        : gas_simulator(glm::vec2(kMargin, kMargin)),
+          simulation_(glm::vec2(kMargin, kMargin), kWindowSize, kWindowSize,
+                      gas_simulator.GetParticles()) {
     ci::app::setWindowSize((int) kWindowWidth, (int) kWindowHeight);
 }
 
