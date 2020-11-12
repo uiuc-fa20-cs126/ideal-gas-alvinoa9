@@ -4,6 +4,8 @@
 #include "cinder/gl/gl.h"
 #include "simulation.h"
 #include <core/ideal_gas_simulator.h>
+#include <algorithm>
+#include <math.h>
 
 namespace idealgas {
 
@@ -18,23 +20,20 @@ public:
     IdealGasApp();
 
     void draw() override;
-    //void update() override;
 
-    //void mouseDown(ci::app::MouseEvent event) override;
-    //void mouseDrag(ci::app::MouseEvent event) override;
+    void DrawHistogram();
     //void keyDown(ci::app::KeyEvent event) override;
 
-    const double kWindowSize = 500;
-    const double kMargin = 100;
-    const size_t kImageDimension = 28;
-
+    const size_t kWindowSize = 700;
+    const size_t kWindowWidth = 1200;
+    const size_t kWindowHeight = 850;
+    const size_t kMargin = 50;
+    const ci::Font kUiFont = ci::Font("Arial", 22);
+    const int kHistogramInterval = 20;
 private:
     Simulation simulation_;
-    const double kRadius_ = 1.0;
-    const string particle_color_ = "blue";
-    //const std::string kFile = "";
-    IdealGasSimulator gas_simulator(kWindowSize);
-
+    IdealGasSimulator gas_simulator = IdealGasSimulator(glm::vec2(kMargin, kMargin));// = IdealGasSimulator(glm::vec2(kMargin, kMargin));
+    //vector<Particle> particles = gas_simulator.GetParticles();
 };
 
 }  // namespace visualizer

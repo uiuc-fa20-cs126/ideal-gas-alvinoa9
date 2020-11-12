@@ -1,7 +1,7 @@
 #include "cinder/gl/gl.h"
 #include <vector>
 using namespace std;
-
+#pragma once
 namespace idealgas {
 
 /**
@@ -13,6 +13,14 @@ class Particle {
          * Default constructor
          */
         Particle();
+
+        /**
+         * Class constructor
+         * @param m mass of particle
+         * @param r radius of particle
+         * @param c color of particle
+         */
+        Particle(double m, double r, string c);
 
         /**
          * Getter for particle's position
@@ -33,6 +41,18 @@ class Particle {
         double GetRadius();
 
         /**
+         * Getter for particle's mass
+         * @return mass of particle
+         */
+        double GetMass();
+
+        /**
+         * Getter for particle's color
+         * @return color of particle
+         */
+        string GetColor();
+
+        /**
          * Setter for particle position
          * @param new_position updated position
          */
@@ -44,7 +64,15 @@ class Particle {
          */
         void SetVelocity(glm::vec2 new_velocity);
 
+        /**
+         * Getter for particle's speed
+         * @return speed of particle
+         */
+        double GetSpeed();
+
     private:
+        double mass;
+        string color;
         glm::vec2 position;
         glm::vec2 velocity;
         double radius;
@@ -56,9 +84,15 @@ class Particle {
 class IdealGasSimulator {
     public:
         /**
-         * Default constructor
+         * Default Constructor
          */
-        IdealGasSimulator(double window_size);
+        IdealGasSimulator();
+
+        /**
+         * Class constructor
+         * @param window_size size of window
+         */
+        IdealGasSimulator(glm::vec2 window_size);
 
         /**
          * Determine a particle's behaviour
@@ -96,7 +130,7 @@ class IdealGasSimulator {
     private:
         vector<Particle> particles;
 
-        double window_size_;
+        glm::vec2 window_size_;
 };
 
 }   //namespace idealgas

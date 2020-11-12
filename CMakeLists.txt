@@ -64,7 +64,7 @@ list(APPEND TEST_FILES tests/ideal-gas-test.cpp)
 ci_make_app(
         APP_NAME        simulation-simulator
         CINDER_PATH     ${CINDER_PATH}
-        SOURCES         apps/cinder_app_main.cpp ${SOURCE_FILES}
+        SOURCES         apps/cinder_app_main.cc ${SOURCE_FILES}
         INCLUDES        include
 )
 

@@ -1,5 +1,8 @@
-#include <core/ideal_gas_simulator>
+#include <core/ideal_gas_simulator.h>
 #include <catch2/catch.hpp>
+#include "cinder/gl/gl.h"
+
+using namespace idealgas;
 
 TEST_CASE("Test particle collision") {
     IdealGasSimulator test(100.0);

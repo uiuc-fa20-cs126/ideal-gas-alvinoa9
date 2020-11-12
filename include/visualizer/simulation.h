@@ -19,12 +19,13 @@ public:
      * Creates a simulation
      *
      * @param top_left_corner    screen coordinates of top left corner of simulator
-     * @param particle_radius
+     * @param pixels_x           x-coordinate of bottom box
+     * @param pixels_y           y-coordinate of bottom box
      * @param particle_color
      * @param particles
      */
-    Simulation(const vec2& top_left_corner, double particle_radius,
-               string particle_color, vector<Particle> particles);
+    Simulation(const glm::vec2& top_left_corner, size_t pixels_x, size_t pixels_y,
+               vector<Particle> particles);
 
     /**
      * Displays the current state of the simulation in the Cinder application.
@@ -40,6 +41,10 @@ private:
     string particle_color_;
 
     vector<Particle> particles_;
+
+    size_t pixels_x_;
+
+    size_t pixels_y_;
 
 };
 
